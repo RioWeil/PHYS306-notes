@@ -1,0 +1,57 @@
+\documentclass[../PHYS306Notes.tex]{subfiles}
+
+\begin{document}
+\section{Lecture 24}
+\subsection{Lecture Notes - Phase Space \& Canonical Transformations}
+\subsubsection{Cyclic/Ignorable Coordinates}
+If $\LL$ is independent of a generalized coordinate $q_i$, then for the associated generalized momentum we have that $\dot{p}_i = 0$ and hence the generalized momentum is conserved. Equivalently, if $\HH$ is independent of of a generalized coordinate $q_i$, the same conclusion holds (as $\pd{\LL}{q_i} = -\pd{\HH}{q_i}$.) With Hamiltonian dynamics, you can do another thing; consider $\HH = \HH(q_1, p_1, p_2)$ and with $p_2 = \text{Const.} = K$, then we can reduce the degrees of freedom by one explicitly; that is, $\HH(q, p_1, K)$. Hence we have one fewer equations of motion directly. We have reduced the complexity by 1 DoF. It's not necessarily easier to solve Hamilton's equations than Lagrange's, but we may be able to reduce the number of coordinates by using Hamilton's formalism.
+
+\subsubsection{Phase Space Vectors}
+In the Lagrangian formulation, the equations of motion are of the form $f(\ddot{q}, \dot{q}, q) = 0$ (2nd order DEs). As we have said in this course before (and has been covered in differential equations courses), we can convert this second order DE into a system of two differential equations. If we define $s = \dot{q}, \dot{s} = \ddot{q}$, then we have:
+\[f(\dot{s}, s, q) = 0\]
+Hence we have the two first order differential equations:
+\[\dot{s} = \ddot{q}, f(\dot{s}, s, q) = 0\]
+Hamilton's equations of motion read:
+\[\dot{q}_i = \dpd{\HH}{p_i} = f_i(\v{q}, \v{p})\]
+\[\dot{p}_i = -\dpd{\HH}{q_i} = g_i(\v{q}, \v{p})\]
+Both p and q are independent variables, so we might as well combine them into a single vector, which is the \textit{phase space vector}:
+\[\v{z} = (\v{q}, \v{p})\]
+Hence we may write the equations as:
+\[\dot{\v{z}} = \v{f}(\v{z})\]
+So we have a system of first order DEs. This may be beneficial as we have many mathematical techniques to solve first order DEs. Note that in particular we may write:
+\[\dot{\v{z}} = J \cdot \nabla_{\v{z}}\HH(z, t)\]
+What is the form of the matrix $J$?
+\begin{s}
+\[J = \m{0 & \cdots & I \\ \vdots & \ddots & \vdots \\ -I & \cdots & 0}\]
+Where the $0$s and $I$s represent blocks of the matrices. Note that $\dot{q}_i = \pd{\HH}{p_i}$ and $\dot{p}_i = - \pd{\HH}{q_i}$. Note that $J$ is known as the "metric of phase space". 
+\end{s}
+
+\subsubsection{Canonical Transformations}
+In Lagrangian mechanics, we can take the generalized coordinates $\v{q} = \v{q}(q_1, \ldots, q_n)$ that can be replaced by $Q = (Q_1, \ldots, Q_n)$ with $\v{Q} = \v{Q}(\v{q})$ and for which the Euler-Lagrange equations are still valid. The question becomes: Can we do something similar with Hamilton's equations? Can we transform $q_i \mapsto Q_i = Q_i(q, p, t)$ and $p_i \mapsto P_i = P_i(q, p, t)$ so that:
+\[\dot{Q}_i = \dpd{K}{P_i}\]
+\[\dot{P}_i = -\dpd{K}{Q_i}\]
+with a new hamiltonian $K$? The answer turns out to be not in general.
+
+\noindent As a counterexample, we can have $Q = p, P = q$ with $H = K$. The transform of phase space is a wider class than the transformation of just the coordinate space, so there will only be a subset of the many possible transformation that leave the Hamilton's equation of motion form invariant. Such a subset is known as the canonical transformations. 
+
+\noindent Recall in Lecture 6 that we talked about how general the Lagrangian was, and we showed that one can add a total derivative $\od{F}{t}$ to $\LL$ and not change the equations of motion. This is because adding $\od{F}{t}$ does not contribute to the variation, that is:
+\[\delta \int_{t_1}^{t_2} \dod{F}{t}dt = \left. \delta F\right|_{t_1}^{t_2} = 0\]
+Where in the last equality we use the fact that the variation vanishes at the endpoints. Hence adding the total derivative does not contribute to the variation. This $F$ is known as the generating function. In particular, we can set:
+\[\sum_i \dot{q}_i p_i - \HH = \sum_i\dot{Q}_iP_i - K + \dod{F}{t}\]
+And I know that these new variables will satisfy the same equations. We can use this $F$ to generate such tranformations. In full, we have $4n$ variables of $q, p, Q, P$ but only $2n$ are independent; hence $F$ should depend on $2n$ independent variables. Hence, there are $4$ possible ways we could construct a generating function. These would be:
+\[F_1 = F_1(q, Q, t)\]
+\[F_2 = F_2(q, P, t)\]
+\[F_3 = F_3(p, Q, t)\]
+\[F_4 = F_4(p, P, t)\]
+For now, we will look at the first case, $F_1(q, Q, t)$. In this case, 
+\[\sum_i \dot{q}_i p_i - \HH = \sum_i \dot{Q}_i P_i - K + \dod{F_1}{t} = \sum_{i}\dot{Q}_iP_i - K \sum_i\dpd{F_1}{q_i}\dot{q}_i + \sum_i \dpd{F_1}{Q_i}\dot{Q}_i + \dpd{F_1}{t}\]
+We now collect some terms (i.e. the terms that depend commonly on $\dot{q}_i$, $\dot{Q}_i$). Doing so we have:
+\[\sum_i \dot{q}_i\left(p_i - \dpd{F_1}{q_i}\right) - \sum_i\dot{Q}_i\left(P_i + \dpd{F_1}{Q_i}\right) + K - \HH - \dpd{F_1}{t} = 0\]
+From this equation, it is nice to read off what the transformed variables must look like. From the first term, $p_i = \dpd{F_1}{q_i}$, $P_i = -\dpd{F}{Q_i}$, and the new Hamiltonian is $K = \HH + \dpd{F_1}{t}$.
+
+\noindent This is all quite abstract, so let us consider an example. Let $F_1 = F_1(q, Q, t) = \sum_i q_iQ_i$. We therefore have that $p_i = \pd{F_1}{q_i} = Q_i$, $P_i = \pd{F_1}{Q_i} = - q_i$, and $K = \HH$ as the Hamiltonian is not explicitly time dependent. This is just an interchange of coordinates. This shows that in the Hamiltonian description, $p$ and $q$ are compeltely symmetric and can be completely interchanged. 
+
+\noindent We can derive very very similar transformation laws for the other three general cases above.
+
+\noindent Whas is all of this good for? Can we do something more with it? Indeed we can, but we will see it on Wednesday. The first thing we shall do is to introduce a criterion for when a transform is canonical, and in doing so we will introduce something known as a Poisson bracket. We will also show that a time evolution itself is a canonical transformation. We will also show conservation laws associated with canonical transformations, and this will get us into Liouville's theorem. 
+\end{document}
