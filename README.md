@@ -1,5 +1,5 @@
 # PHYS306-notes
-Lecture Notes and Worksheet Solutions for the 2020W2 PHYS 306 (Advanced Classical Mechanics) course. The course followed Taylor's "Classical Mechanics", and covered the following topics:
+Lecture Notes and Worksheet Solutions for the 2020W2 PHYS 306 (Advanced Classical Mechanics) course. The course generally followed Taylor's "Classical Mechanics", and covered the following topics:
 1. Calculus of Variations
 2. Lagrangian Mechanics
 3. Coupled Oscillators
