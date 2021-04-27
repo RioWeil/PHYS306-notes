@@ -1,0 +1,39 @@
+\documentclass[../PHYS306Notes.tex]{subfiles}
+
+\begin{document}
+\subsection{Worksheet - Energy and the Hamiltonian}
+\begin{p}
+Show that if a coordinate transformation is "natural" (no explicit time-dependence, $\v{r} = \v{r}(q_1, \cdots, q_n)$) that the kinetic energy is a homogenous quadratic function of the velocities (a function is homogenous of degree $k$ if $f(\alpha x) = \alpha^kf(x)$. Find this quadratic function.
+\end{p}
+\begin{s}
+Note that any function that is a power law will satisfy this property; it turns out that kinetic energy has this property (as we know). To solve the problem, we consider $\dot{\v{r}}_j$:
+\[\dot{\v{r}}_j = \sum_{i=1}^n\dpd{\v{r}_j}{q_i}\dot{q}_i\]
+To calculate $\dot{\v{r}}_j^2$, we multiply the two sums:
+\[\dot{\v{r}}_j^2 = \left(\sum_i\dpd{\v{r}_j}{q_i}\dot{q}_i\right)\left(\sum_k\dpd{\v{r}_j}{q_k}\dot{q}_k\right)\]
+This gives us:
+\[T = \frac{1}{2}\sum_jm_j\dot{\v{r}}_j^2 = \frac{1}{2}\sum_{i,k}\dot{q}_i\dot{q}_j\left(\sum_j m_j\dpd{\v{r}_j}{q_i}\dpd{\v{r}_j}{q_k}\right)\]
+This term on the right is a matrix which we can call $A_{ik}$. Once we sum over these components, we get the total energy. Now we can see that this is homogenous, quadratic in $\dot{\v{r}}_j$.
+\end{s}
+
+\begin{p}
+Show then that the conjugate momenta have the form $p_i = \sum_j A_{ij}\dot{q}_j$, and thus that the hamiltonian $\HH = E$, the total energy. Thus, under the above conditions, symmetry under time translation is equivalent to conservation of energy.
+\end{p}
+\begin{s}
+Using the result from above:
+\[p_i = \dpd{\LL}{\dot{q}_i} = \dpd{T}{\dot{q}_i}  = \sum_j A_{ij}\dot{q}_j\]
+Therefore:
+\[\sum_i p_i\dot{q}_i = \sum_i\left(\sum_j A_{ij} \dot{q}_j\right)\dot{q}_i = \sum_{i,j}A_{ij} \dot{q}_i\dot{q}_j = 2T\]
+Hence (using the defintion of $\HH$ from lecture):
+\[\HH = 2T - \LL = 2T - (T - U) = T + U = E\]
+Which is just the total energy.
+\end{s}
+
+\begin{p}
+Show that the same derivation follows directly by using the property that the kinetic energy is a homogenous function of degree 2 in the generalized velocities (use Euler’s homogeneity theorem: $f$ is positively homogenous of degree $k$ if and only if $\v{x}\cdot\grad{f(\v{x}} = kf(\v{x})$.
+\end{p}
+\begin{s}
+We have (letting $\v{x} = \dot{\v{q}}$:
+\[\dot{\v{q}} \cdot \dpd{T}{\dot{\v{q}}} = \sum_i p_i \dot{q}_i = 2T\]
+Where the last line follows from the homogeneity theorem.
+\end{s}
+\end{document}

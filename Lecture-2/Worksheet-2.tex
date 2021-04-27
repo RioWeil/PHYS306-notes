@@ -1,0 +1,86 @@
+\documentclass[../PHYS306Notes.tex]{subfiles}
+
+\begin{document}
+\subsection{Worksheet - Variational Principle Applied to Free Fall}
+As a second example for the variational principle, let’s consider the (one-dimensional) free fall of a particle of mass $m$ due to gravity starting at zero and from rest for a duration T.
+
+\begin{p}
+Write down the Lagrange-Function $\LL = T - U$ using a generalized coordinate q.
+\end{p}
+\begin{s}
+Let us use the height of particle as our generalized coordinate $q$. In this case the velocity of the particle is simply $\dot{q}$, so we have that:
+\[T = \frac{1}{2}m\dot{q}^2, \quad U = mgq\]
+Hence the Lagrangian is:
+\[\LL = T - U = \frac{1}{2}m\dot{q}^2 - mgq\]
+\end{s}
+
+\begin{p}
+Using Newton’s 2\textsuperscript{nd} law, write down the equation of motion for $q$ and the solution $q(t)$.
+\end{p}
+\begin{s}
+By Newton's second law, we have that there is only a gravitational force $-mg$ acting on the particle, and hence it reads:
+\[\sum F = -mg = m\ddot{q} \implies -g = \ddot{q}\]
+We solve this second order differential equation by integrating twice, which gives us:
+\[q(t) = -\frac{1}{2}gt^2 + \dot{q}(t=0)t + q(t=0)\]
+Since the particle starts at rest, we have that $\dot{q}(0) = 0$ and hence:
+\[q(t) = -\frac{1}{2}gt^2 + q(t=0)\]
+\end{s}
+
+\begin{p}
+Write down the “boundary conditions” $q(t=0)$ and $q(t=T)$.
+\end{p}
+\begin{s}
+We define our coordinate system such that $q(t=0) = 0$, and then by the solution above, $q(t=T) = -\frac{1}{2}gT^2$.
+\end{s}
+
+\begin{p}
+A possible 'trial trajectory' could be the from $q_{\text {trial }, \alpha}(t)=-\frac{1}{2} g t^{2}+\alpha \sin \left(\frac{\pi t}{T}\right)$. (This is how variational calculus is carried out!) Check that this function satisfies the boundary conditions at $\mathrm{t}=0$ and $\mathrm{t}=\mathrm{T}$.
+\end{p}
+\begin{s}
+We see that:
+\[q(t=0) = -\frac{1}{2}g(0)^2 + \alpha \sin \left(\frac{\pi (0)}{T}\right) = 0\]
+and
+\[q(t=T) = -\frac{1}{2}gT^2 + \alpha \sin \left(\frac{\pi T}{T}\right) = -\frac{1}{2}gT^2 \]
+as desired.
+\end{s}
+
+\begin{p}
+Instead of considering all possible trajectories that obey the boundary conditions, we consider here only a specific family parameterized by $\alpha .$ Thus $S\left[q_{\text {trial}, \alpha}(t)\right]=S(\alpha)$ is a function of $\alpha$ Write down $S\left[q_{\text {trial}, \alpha}(t)\right]$ and show that it can be written as
+\[ S\left[q_{\text {trial}, \alpha}(t)\right]=S[q(t)]+m \alpha^{2} \pi^{2} / 4 T \]
+In the above form it is evident that the true trajectory $(\alpha=0)$ minimizes $S$.
+\end{p}
+\begin{s}
+Plugging in the trial trajectory into the Lagrangian determined in question 1, we have:
+\begin{align*}
+S\left[q_{\text {trial}, \alpha}(t)\right] &= \int_{0}^T \LL(q,\dot{q}, t)dt
+\\ &= \int_{0}^T\frac{1}{2}m\left(\dod{}{t}\left(-\frac{1}{2} g t^{2}+\alpha \sin \left(\frac{\pi t}{T}\right)\right)\right)^2 - mg\left(-\frac{1}{2} g t^{2}+\alpha \sin \left(\frac{\pi t}{T}\right)\right)dt
+\\ &= \int_{0}^T\frac{1}{2}m\left(-gt + \frac{\alpha \pi}{T}\cos(\frac{\pi t}{T})\right)^2 + \frac{mg^2}{2}t^2 - mg\alpha\sin(\frac{\pi t}{T}) dt
+\\ &= \int_0^T \frac{1}{2}m\left(g^2t^2 - 2\frac{gt\alpha\pi}{T}\cos(\frac{\pi t}{T}) + \frac{\alpha^2\pi^2}{T^2}\cos[2](\frac{\pi t}{T})\right) + \frac{mg^2}{2}t^2 - mg\alpha\sin(\frac{\pi t}{T}) dt
+\\ &= \int_0^T mg^2t^2 + \frac{m\alpha^2\pi^2}{2T^2}\cos[2](\frac{\pi t}{T}) dt \text{ (Integrals over full period of sine/cosine are zero)}
+\\ &= \int_0^T mg^2t^2 + \frac{m\alpha^2 \pi^2}{4T}
+\\ &= S[q(t)] + \frac{m\alpha^2 \pi^2}{4T}
+\end{align*}
+Clearly this is minimized for $\alpha = 0$, and for any $\alpha > 0$ the action is larger. The one the action that makes the action minimal is the true physical path.
+\end{s}
+
+\begin{p}
+Show that if $S = \int_{t_1}^{t_2} f(x, y, \dot{x}, \dot{y}) dt$ that there are \textbf{two} Euler-Lagrange equations for the stationary curves $x(t), y(t)$. Write the Euler-Lagrange equations.
+\end{p}
+\begin{s}
+Let the correct path be given by $x = x(u)$ and by $y = y(u)$, and the wrong/varied path be given by $x = x(u) + \alpha\xi(u)$ and $y = y(u) + \beta\eta(u)$. By a very similar process to worksheet 1, we impose the requirement that $\left. \od{S}{\alpha}\right|_{\alpha = 0} = 0$ and $\left. \od{S}{\beta}\right|_{\beta = 0} = 0$. This leads to the two Euler Lagrange equations:
+\[\dpd{f}{x} = \dod{}{u}\dpd{f}{x'} \text{ and } \dpd{f}{y} = \dod{}{u}\dpd{f}{y'}\]
+\end{s}
+
+\begin{p}
+Construct Lagrange’s equations for a particle in a two-dimensional potential $U(x,y)$, and show that these are equivalent to a particle obeying Newton’s equations.
+\end{p}
+\begin{s}
+We have that the Lagrangian is given by:
+\[\LL = \frac{1}{2}m\left(\dot{x}^2+\dot{y}^2\right) - U(x,y)\]
+So by the two Euler-Lagrange equations above:
+\[\dpd{L}{x} = \dod{}{t}\dpd{L}{\dot{x}} \implies -\dod{U(x,y)}{x} = \dod{}{t}m\dot{x} \implies F_x = m \ddot{x} \]
+\[\dpd{L}{y} = \dod{}{t}\dpd{L}{\dot{y}} \implies -\dod{U(x,y)}{y} = \dod{}{t}m\dot{y} \implies F_y = m \ddot{y} \]
+So we recover Newton's second law of:
+\[\v{F} = m\ddot{\v{r}}\]
+\end{s}
+\end{document}

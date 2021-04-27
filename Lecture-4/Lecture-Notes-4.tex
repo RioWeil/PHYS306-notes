@@ -1,0 +1,22 @@
+\documentclass[../PHYS306Notes.tex]{subfiles}
+
+\begin{document}
+\section{Lecture 4}
+\subsection{Lecture Notes - Lagrangian Mechanics Part 4}
+\subsubsection{Proof of Lagrange Equations for Holonomic Systems}
+We consider a holonomic system with $f(\v{r}_i, t) = 0$ constraints. Consider a true path $\v{r}^*(t)$, and a general path with variation of $\v{r}(t) = \v{r}^*(t) + \alpha\delta\v{r}(t)$ Note that $\v{r}$ is not necessarily generalized coordinate. $\v{r}(t)$ and $\v{r}^*(t)$ are on a surface to which the particle is constrained; this implies that the variation is also constrained. Now, we study the action:
+\[S[\v{r}^* + \alpha\delta\v{r}] = \int_{t_1}^{t_2} \LL[\v{r}^* + \alpha\delta\v{r}, \dot{\v{r}}^* + \alpha\delta\dot{\v{r}}, t]dt\]
+Now, we do a Taylor expansion around the true path:
+\begin{align*}
+    S[\v{r}^* + \alpha\delta\v{r}] &= \int_{t_1}^{t_2} dt\left(\LL(\v{r}^*, \dot{\v{r}}^*, t) + \alpha\delta\v{r}\dpd{\LL}{\v{r}} + \alpha\delta\dot{\v{r}}\dpd{\LL}{\dot{\v{r}}} + \delta(\alpha^2) \right) \quad \text{First term is unperturbed action, so we can write as:}
+    \\ &= S[\v{r}^*, \dot{\v{r}}^*, t] + \alpha\int_{t_1}^{t_2}dt\dpd{\LL}{\v{r}}\delta\v{r} + \alpha\int_{t_1}^{t_2}dt\dpd{\LL}{\dot{\v{r}}}\dod{}{}t + \delta(\alpha^2)\quad\text{Integrating by parts, we have:}
+    \\&= S[\v{r}^*, \dot{\v{r}}^*, t] + \alpha\int_{t_1}^{t_2}dt\dpd{\LL}{\v{r}}\delta\v{r} + \left. \dpd{\LL}{\dot{\v{r}}}\delta\v{r}\right|_{t_1}^{t_2} - \int_{t_1}^{t_2}dt\left(\dod{}{t}\dpd{\LL}{\dot{\v{r}}}\right)\delta\v{r}\quad\text{Boundary term is zero, so:}
+    \\&= S[\v{r}^*, \dot{\v{r}}^*, t] + \alpha\int_{t_1}^{t_2}dt\left(\dpd{\LL}{\v{r}} - \dod{}{t}\dpd{\LL}{\dot{\v{r}}}\right)\delta\v{r} + \delta(\alpha^2)
+\end{align*}
+This is a first order variation (as we can tell from the fact that we expanded around $\alpha$ to first order). This is given by:
+\[\delta S = \lim_{\alpha \rightarrow 0}\frac{1}{\alpha}\left(S[\v{r}^* + \alpha\delta\v{r}] -S[\v{r}^*]\right) = \int_{t_1}^{t_2}dt\left(\dpd{\LL}{\v{r}} - \dod{}{t}\dpd{\LL}{\dot{\v{r}}}\right)\delta\v{r}\]
+We have that the first term $\dpd{\LL}{\v{r}} = -\grad{U}$ are conservative forces. Now considering the kinetic energy as $T = \frac{m}{2}\dot{\v{r}}^2$, then the second term is $\dod{}{t}\dpd{\LL}{\dot{\v{r}}} = m\ddot{\v{r}} = \v{F}_{tot} = \v{F}_{constraint} + \v{F}_{conservative}$. The contribution to the action integral for the constraint forces are given by $-\int_{t_1}^{t_2}\delta\v{r}\cdot\v{F}_{constaint} = 0$ as the constraint force is perpendicular to any direction for which we can actually very the path! Hence, the first order variation is given by:
+\[\delta S = -\int_{t_1}^{t_2}\delta\v{r}\cdot\left(m\ddot{\v{r}} + \grad{U}\right)dt\]
+If the particle follows Newton's laws of motion, then $m\ddot{\v{r}} + \grad{U} = 0$ and hence the first order variation is $\delta S = 0$! The beauty of this formulation is the constraint forces do not contribute. Here, $\delta\v{r}$ must be consistent with the constraint. So for the generalized coordinate, any variation works, and $\delta S[q] = 0$.
+
+\end{document}

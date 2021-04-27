@@ -1,0 +1,71 @@
+\documentclass[../PHYS306Notes.tex]{subfiles}
+
+\begin{document}
+\subsection{Worksheet - Lagrangians for EM fields, Uniqueness}
+\begin{p}
+From the form of the Lagrangian for a charged particle in an electromagnetic field, find the generalized momentum $\v{p}$.
+\end{p}
+\begin{s}
+As discussed in the lecture, we generalize the potential \[U' = qV - q\dot{\v{r}}\cdot\v{A}\]
+and hence construct the Lagrangian:
+\[\LL = T - U' = \frac{1}{2}m\dot{\v{r}}^2 - qV + q\dot{\v{r}}\cdot\v{A}\]
+The generalized momentum is then given by:
+\[\v{p} = \dpd{\LL}{\dot{\v{r}}} = m\dot{\v{r}} + q\v{A}\]
+\end{s}
+
+\begin{p}
+Find the generalized force for the above system in the x-direction, and the total time derivative of the generalized momentum, $\od{\v{p}}{t}$ (Recall that $\v{A} = \v{A}(x,y,z,t)$)).
+\end{p}
+\begin{s}
+The generalized force in the x direction is given by:
+\[F_x = \dpd{\LL}{x} = -q\left(\dpd{V}{x} - \dot{x}\dpd{A_x}{x} - \dot{y}\dpd{A_y}{x} - \dot{z}\dpd{A_z}{x}\right)\]
+The total time derivative of the generalized momentum is given by:
+\[\dod{}{t}p_x = m\ddot{x} + q\left(\dot{x}\dpd{A_x}{x} + \dot{y}\dpd{A_x}{y} + \dot{z}\dpd{A_x}{z} + \dpd{A_x}{t}\right)\]
+Where we have used the chain rule. 
+\end{s}
+
+\begin{p}
+Write the equations of motion in terms of the electric and magnetic fields.
+\end{p}
+\begin{s}
+Combining the two equations above (EL equation), we have:
+\[m\ddot{x} = -q\left(\dpd{V}{x} + \dpd{A_x}{t}\right) + q\dot{y}\left(\dpd{A_y}{x} - \dpd{A_x}{y}\right) + q\dot{z}\left(\dpd{A_z}{x} - \dpd{A_x}{z}\right)\]
+Recognizing the first term as the electric field term and the second/third terms as $B_z$ and $-B_y$ respectively, we recognize this as the x component of $\dot{\v{r}}\times \left(\curl{\v{A}}\right)$, or the Lorentz Force! The y and z components follow similarly and we recover:
+\[m\ddot{\v{r}} = q(\v{E} + \dot{\v{r}}\times\v{B})\]
+Which matches up with Newton's Law. Hence, we have been able to extend the Lagrangian formalism to charged particles in electromagnetic fields.
+\end{s}
+
+\begin{p}
+Consider a charged, relativistic particle in an electric field $\v{E}$. Show that the Lagrangian $\mathcal{L}=-m c^{2} \sqrt{1-v^{2} / c^{2}}-q V+q \v{v} \cdot \v{A},$ with $m$ given by the rest mass, gives the correct (relativistic) equations of motion.
+\end{p}
+\begin{s}
+If we recall from PHYS 200, the momentum generalized to the relativistic case has a Lorentz factor of $\gamma = \frac{1}{\sqrt{1- \frac{v^2}{c^2}}}$, given by:
+\[\v{p} = m_0\gamma\v{v}\]
+So we require that we get this back from the Lagrangian expression. Checking the generalized momentum, we see:
+\[\v{p} = \dpd{\LL}{\v{v}} = -m_0c^2\frac{1}{2}\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}\left(-2\frac{\v{v}}{c^2}\right) = m_0\gamma\v{v}\]
+Which lines up with our expectation.
+\end{s}
+
+\begin{p}
+Show that $\LL = T - U +x^2\dot{x}$ also gives the Newton’s equations of motion. What is the implication for the uniqueness of the Lagrangian then?
+\end{p}
+\begin{s}
+Showing that this satisfies Newton's equations of motion:
+\[\dpd{\LL'}{x} = -\dpd{U}{x} + 2x\dot{x}\]
+\[\dpd{\LL'}{\dot{x}} = m\dot{x} + x^2 \implies \dod{}{t}\dpd{\LL'}{\dot{x}} = m\ddot{x} + 2x\dot{x}\]
+Therefore by the EL equation:
+\[\dpd{\LL'}{x} = \dod{}{t}\dpd{\LL}{\dot{x}}\]
+\[-\dpd{U}{x} + 2x\dot{x} = m\ddot{x} + 2x\dot{x}\]
+So we recover Newton's law:
+\[-\dpd{U}{x} = m\ddot{x}\]
+This shows that the Lagrangian is not unique. In general, we can always add a total derivative of the form:
+\[\dod{}{t}G(q,t)\]
+to $\LL$ without changing the equations of motion. To see that this is the case, consider the modified Lagrangian:
+\[\LL'(q, \dot{q}, t) = \LL(q, \dot{q}, t) + \dod{}{t}G(q,t)\]
+And now computing the action, we have:
+\[S'(q, \dot{q}, t) = \int_{t_1}^{t_2}\LL(q, \dot{q}, t)dt + \int_{t_1}^{t_2}\dod{}{t}G(q, t)dt\]
+The second term we compute to be $G(q_2, t_2) - G(q_1, t_1)$ which are independent of the trajectory (as the start and endpoints are the same). So this does not affect the overall action, or the trajectory that minimizes the action, or in other words:
+\[\delta S' = \delta S\]
+\end{s}
+
+\end{document}

@@ -1,0 +1,437 @@
+\documentclass[../PHYS306Notes.tex]{subfiles}
+
+\begin{document}
+\section{Formula Sheet}
+This section lists most of the important formulas used throughout the year, albeit without explanation; it will likely be most helpful as a quick reference when doing homework problems of when studying. They are written in the order in which material was covered in the course. 
+\subsection{The Variational Principle and Lagrangian Mechanics}
+Newton's Law
+\begin{equation}
+    \sum_{i=1}^{n}\v{F}_i(t) = m\ddot{\v{r}}(t)
+\end{equation}
+Generalized Coordinates:
+\begin{equation}
+q_i = q_i(\v{r}_1, \v{r}_2, \ldots, \v{r}_n)
+\end{equation}
+Action \& Hamilton's Principle:
+\begin{equation}
+    S[q_1, \ldots, q_n] = S[q_1(t), \ldots, q_n(t)] = \int_{t_1}^{t_2}\LL(q_1, \dot{q}_1,\ldots, q_n, \dot{q}_n, t)dt \text{ is stationary for the true path}
+\end{equation}
+The Lagrangian:
+\begin{equation}
+    \LL = T - U
+\end{equation}
+Euler-Lagrange equations:
+\begin{equation}
+    \dpd{f}{y} - \dod{}{x}\dpd{f}{y'} = 0 \text{ Where $f$ is the function being minimized}
+\end{equation}
+Lagrange equation of motion:
+\begin{equation}
+    \dpd{\LL}{q} = \dod{}{t}\dpd{\LL}{\dot{q}}
+\end{equation}
+Generalized Force:
+\begin{equation}
+    \dod{\LL}{q}
+\end{equation}
+Generalized Momenta:
+\begin{equation}
+    \dod{\LL}{\dot{q}}
+\end{equation}
+Center of Mass Coordinates:
+\begin{equation}
+    \v{R} = \frac{m_1\v{r}_1 + m_2\v{r}_2}{m_1 + m_2}, \quad \v{r} = \v{r}_1 - \v{r}_2
+\end{equation}
+Holonomic constraints:
+\begin{equation}
+    f(\v{r}_i, t) = 0
+\end{equation}
+Lagrange equation of motion with non-conservative force correction:
+\begin{equation}
+    \dpd{\LL}{q} + F_{noncons} = \dod{}{t}\dpd{\LL}{\dot{q}}   
+\end{equation}
+Lorentz Force Law:
+\begin{equation}
+    m\ddot{\v{r}} = q(\v{E} + \dot{\v{r}} \times \v{B})
+\end{equation}
+Lagrangian for charged particle in EM field:
+\begin{equation}
+    \LL = T - U' = T - (qV - q\dot{\v{r}}\cdot \v{A})
+\end{equation}
+Generalized momentum for charged particle in EM field:
+\begin{equation}
+    \v{p} = m\dot{\v{r}} + q\v{A}
+\end{equation}
+Relativistic spatial momentum:
+\begin{equation}
+    \v{p} = m_0\gamma \v{v}
+\end{equation}
+Noether's Theorem:
+\begin{equation}
+    \left.\dod{}{t}\sum_{j=1}^n\left(\dpd{\LL}{\dot{\tilde{q}}_j}\dpd{\tilde{q}_j}{\alpha}\right)\right|_{\alpha=0} = \dod{}{t}I(q_1, \dot{q}_1, \ldots t) = 0
+\end{equation}
+Hamiltonian:
+\begin{equation}
+    \HH = \sum_j p_j\dot{q}_j - \LL
+\end{equation}
+Lagrange Multipliers:
+\begin{equation}
+    \dpd{\LL}{q_i} + \sum_{k=1}^m\lambda_k \dpd{f_k}{q_i} = \dod{}{t}\dpd{\LL}{\dot{q}_i} \text{ for a system with $m$ holonomic constraints}
+\end{equation}
+\subsection{Coupled Oscillators}
+General solution to simple harmonic oscillator:
+\begin{equation}
+    x(t) = A\cos(\omega_0 t - \delta), \quad \omega_0 = \sqrt{\frac{k}{m}}
+\end{equation}
+Damped Oscillator ODE:
+\begin{equation}
+    \ddot{x} + 2\beta\dot{x} + \omega_0^2x = 0, \quad \beta = \frac{b}{2m}
+\end{equation}
+Overdamped Solution:
+\begin{equation}
+    x(t) = C_1\exp(r_1t) + C_2\exp(r_2t) = C_1\exp(\left(-\beta + \sqrt{\beta^2 - \omega_0^2}\right)t) + C_2\exp(\left(-\beta - \sqrt{\beta^2 - \omega_0^2}\right)t)
+\end{equation}
+Critically Damped solution:
+\begin{equation}
+    x(t) = C_1\exp(-\beta t) + C_2t\exp(-\beta t)
+\end{equation}
+Underdamped Solution:
+\begin{equation}
+    x(t) = A\exp(-\beta t)\cos(\left(\sqrt{\omega_0^2 - \beta^2}\right)t - \delta)
+\end{equation}
+Damped Driven Oscillator ODE:
+\begin{equation}
+    \ddot{z} + 2\beta\dot{z} + \omega_0^2z = f_0\exp(i\omega t)
+\end{equation}
+Amplitude of solution $C\exp(i\omega t)$:
+\begin{equation}
+    C = \frac{f_0}{-\omega^2 + 2i\beta \omega + \omega_0^2} = A\exp(i\delta)
+\end{equation}
+Amplitude squared and phase:
+\begin{equation}
+    A^2 = CC^* = \frac{f_0^2}{(\omega_0^2 - \omega^2)^2 + 4\beta^2\omega^2}, \quad \delta = \arctan(\frac{2\beta \omega}{\omega_0^2 - \omega^2})
+\end{equation}
+General solution to $\ddot{x} + 2\beta\dot{x} + \omega_0^2x + f_0\cos(\omega t)$:
+\begin{equation}
+    x(t) = A\cos(\omega t - \delta) + C_1\exp(r_1 t) + C_2\exp(r_2t) = x_{periodic}(t) + x_{trans}(t)
+\end{equation}
+Q factor:
+\begin{equation}
+    Q = \frac{\omega_0}{2\beta}
+\end{equation}
+General Coupled Oscillator Matrix equation:
+\begin{equation}
+    \MM\ddot{\v{x}} = -\KK\v{x}
+\end{equation}
+Eigenfrequency characteristic equation:
+\begin{equation}
+    \det(\KK - \omega^2\MM) = 0
+\end{equation}
+Eigenmodes:
+\begin{equation}
+    (\KK - \omega\MM)\m{A_1 \\A_2} = \v{0}
+\end{equation}
+Normal coordinates:
+\begin{equation}
+    \v{q}(t) = \sum_{i=1}^n\v{a}_i\xi_i(t), \quad \text{such that } \ddot{\xi}_i + \omega_i^2\xi_i = 0
+\end{equation}
+\subsection{Mechanics in Non-Inertial Frames}
+Newton's law for linearly accelerating frame:
+\begin{equation}
+    m\ddot{\v{r}} = \v{F} - m\v{A}
+\end{equation}
+Newton's Law with tidal force:
+\begin{equation}
+    m\ddot{\v{r}} = \v{F}_g + \v{F}_{tidal} = m\v{g} - GMm\left(\frac{\hat{\v{d}}}{d^2} - \frac{\hat{\v{d}}_0}{d_0^2}\right)
+\end{equation}
+Velocity in rotating frames
+\begin{equation}
+    \v{v} = \dot{\v{r}} = \bm{\omega} \times \v{r}
+\end{equation}
+Addition of angular velocities:
+\begin{equation}
+    \bm{\omega}_{31} = \bm{\omega}_{32} + \bm{\omega}_{21}
+\end{equation}
+Time derivatives in non-inertial frames:
+\begin{equation}
+\left(\dod{\v{Q}}{t}\right)_{S_0} = \left(\dod{\v{Q}}{t}\right)_{S} + \bm{\Omega} \times \v{Q}
+\end{equation}
+Newton's Law in Rotating Frame:
+\begin{equation}
+    m\ddot{\v{r}} = \v{F} + \v{F}_{cor} + \v{F}_{cent} + \v{F}_{euler} = \v{F} + 2m\dot{\v{r}}\times \bm{\Omega} + m(\bm{\Omega} \times \v{r})\times \bm{\Omega} + m\v{r} \times \dot{\bm{\Omega}}
+\end{equation}
+\subsection{Rigid Body Mechanics}
+Position of COM:
+\begin{equation}
+    \v{R} = \frac{1}{M}\sum_\alpha m_\alpha\v{r}_\alpha
+\end{equation}
+Momentum of COM:
+\begin{equation}
+    \v{P} = M\dot{\v{R}} = \sum_\alpha m_\alpha \dot{\v{r}}_\alpha
+\end{equation}
+External force:
+\begin{equation}
+    \v{F}_{ext} = M\ddot{\v{R}}
+\end{equation}
+Angular momentum of spinning rigid bodies:
+\begin{equation}
+    \v{L} = \sum_\alpha (\v{R} \times m_\alpha\dot{\v{R}}) + \sum_\alpha (\v{r}'_\alpha + m_\alpha\dot{\v{r}}') = \v{L}_{orbital} + \v{L}_{spin}
+\end{equation}
+Potential energy:
+\begin{equation}
+    U = U_{ext} + U_{int} = U_{ext} + \sum_{i<j}U_{ij}(r_{ij})
+\end{equation}
+Kinetic energy:
+\begin{equation}
+    T = \frac{1}{2}\sum_\alpha m_\alpha \dot{\v{r}}^{'\alpha}_2
+\end{equation}
+Angular momentum for rotation about z axis:
+\begin{equation}
+    \v{L} = \m{L_x \\ L_y \\ L_z} = \sum_\alpha (\v{r}_{\alpha} \times m_\alpha\v{v}_\alpha) = \sum_\alpha (\v{r}_{\alpha} \times m_\alpha(\omega\zhat \times \v{r}_\alpha)) = \sum_\alpha m_\alpha\omega\m{-z_\alpha x_\alpha \\ -z_\alpha y_\alpha \\ x_\alpha^2 + y_\alpha^2} = \m{I_x \omega \\ I_{y}\omega \\ I_z \omega}
+\end{equation}
+Inertia Tensor:
+\begin{equation}
+    \v{L} = \II \bm{\omega} = \m{I_{xx} & I_{xy} & I_{xz} \\ I_{yx} & I_{yy} & I_{yz} \\ I_{zx} & I_{zy} & I_{zz}}\bm{\omega}
+\end{equation}
+Inertia Tensor entries (discrete):
+\[\II = \sum_\alpha m_\alpha \m{(y_\alpha^2 + z_\alpha^2) & - x_\alpha y_\alpha & -x_\alpha z_\alpha
+\\ -y_\alpha x_\alpha & (z_\alpha^2 + x_\alpha^2) & -y_\alpha z_\alpha
+\\ -z_\alpha x_\alpha & -z_\alpha y_\alpha & (x_\alpha^2 + y_\alpha^2)}\]
+Inertia Tensor entries (continuous)
+\[\II = \int dV\rho(x, y, z)\m{y^2 + z^2 & -xy & -xz \\ -xy & x^2 + z^2 & -yz \\ -xz & -yz & x^2 + y^2
+}\]
+Inertia Tensor entries (index notation):
+\begin{equation}
+    I_{ij} = \int dV\rho(x, y, z)\left(\v{r}^2\delta_{ij} - r_ir_j\right)
+\end{equation}
+Parallel Axis Theorem:
+\begin{equation}
+    J_{ij} = I_{ij} + M(a^2\delta_{ij} - a_ia_j)
+\end{equation}
+Principle Axis:
+\begin{equation}
+    \v{L} = \m{\lambda_1 & 0 & 0 \\ 0 & \lambda_2 & 0 \\ 0 & 0 & \lambda_3}\m{\omega_1 \\ \omega_2 \\ \omega_3} = \m{\lambda_1\omega_1 \\ \lambda_2\omega_2 \\ \lambda_3\omega_3}
+\end{equation}
+Torque:
+\begin{equation}
+    \bm{\Gamma} = \dot{\v{L}}
+\end{equation}
+Euler's Equations:
+\begin{equation} \label{eq1}
+\begin{split}
+\Gamma_1 &= \lambda_1\dot{\omega}_1 - (\lambda_2 - \lambda_3)\omega_2\omega_3 \\
+\Gamma_2 &= \lambda_2\dot{\omega}_2 - (\lambda_3 - \lambda_1)\omega_1\omega_3\\
+\Gamma_3 &= \lambda_3\dot{\omega}_3 - (\lambda_1 - \lambda_2)\omega_1\omega_2
+\end{split}
+\end{equation}
+Rotation matrices:
+\begin{equation}
+    R_x = \m{1 & 0 & 0 \\ 0 & \cos\theta & \sin\theta \\ 0 & -\sin\theta & \cos\theta}, \quad R_y = \m{\cos\theta & 0 & -\sin\theta \\ 0 & 1 & 0 \\ \sin\theta & 0 & \cos\theta}, \quad R_z = \m{\cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1}
+\end{equation}
+Euler Angles:
+\begin{enumerate}[1.]
+    \item First, rotate around z-axis by $\phi$.
+    \item Next, rotate around the new y-axis by $\theta$.
+    \item Then, rotate around the new z-axis by $\psi$.
+\end{enumerate}
+Angular velocity vector with Euler Angles:
+\begin{equation}
+    \bm{\omega} = \dot{\phi}\zhat + \dot{\theta}\hat{\v{e}}_2' + \dot{\psi}\hat{\v{e}}_3
+\end{equation}
+Angular velocity vector solely in terms of rotated basis vectors
+\begin{equation}
+    \bm{\omega} = (\dot{\theta}\sin\psi - \dot{\phi}\sin\theta\cos\psi)\hat{\v{e}}_1 + (\dot{\theta}\cos\psi + \dot{\phi}\sin\theta\sin\psi)\hat{\v{e}}_2 + (\dot{\phi}\cos\theta + \dot{\psi})\hat{\v{e}}_3
+\end{equation}
+Kinetic energy for symmetric rigid body with $\lambda_1 = \lambda_2$:
+\begin{equation}
+    T = \frac{1}{2}\left(\lambda_1\omega_1^2 + \lambda_2\omega_2^2 + \lambda_3\omega_3^2\right) = \frac{\lambda_1}{2}(\dot{\theta}^2 + \dot{\phi}^2\sin^2\theta) + \frac{\lambda_3}{2}(\dot{\psi} + \dot{\phi}\cos\theta)^2
+\end{equation}
+Lagrangian of spinning top:
+\begin{equation}
+    \LL = \frac{1}{2}\left[\lambda_3\left(\dot{\psi} + \dot{\phi}\cos\theta\right)^2 + \lambda_1\left(\dot{\phi}^2\sin^2\theta + \dot{\theta}^2\right)\right] - mgR\cos\theta
+\end{equation}
+Conserved $L_3$:
+\begin{equation}
+    L_3 = p_\psi = \dpd{\LL}{\dot{\psi}} = \lambda_3(\dot{\psi} + \dot{\phi}\cos\theta) = \lambda_3\omega_3
+\end{equation}
+Conserved $L_z$:
+\begin{equation}
+    L_z = p_\phi = \dpd{\LL}{\dot{\phi}} = \lambda_1\dot{\phi}\sin^2\theta + \lambda_3(\dot{\phi}\cos\theta + \dot{\psi})\cos\theta
+\end{equation}
+Total energy:
+\begin{equation}
+    E = \frac{\lambda_1}{2}\dot{\theta}^2 + U_{eff}(\theta)
+\end{equation}
+Effective Potential:
+\begin{equation}
+    U_{eff}(\theta) = \frac{(p_\phi - p_\psi\cos\theta)^2}{2\lambda_1\sin^2\theta} + \frac{p_\psi^2}{2\lambda_3} + mgR\cos\theta
+\end{equation}
+Oscillatons about the minimum/nutation:
+\begin{equation}
+    \dot{\phi} = \frac{p_\phi - p_\psi\cos\theta}{\lambda_1\sin^2\theta}
+\end{equation}
+\subsection{Hamiltonian Mechanics}
+Hamiltonian Definition (again):
+\begin{equation}
+    \HH = \sum_i p_i\dot{q}_i - \LL = \sum_i \dpd{\LL}{\dot{q}_i}\dot{q}_i - \LL
+\end{equation}
+Hamilton's equations of motion:
+\begin{equation}
+    \dpd{\HH}{p_i} = \dot{q}_i, \dpd{\HH}{q_i} = -\dot{p}_i
+\end{equation}
+Canonical transformation to $\HH \mapsto K$, $q_i \mapsto Q_i$, $p_i \mapsto P_i$ must satisfy:
+\begin{equation}
+    \dpd{K}{P_i} = \dot{Q}_i, \dpd{K}{Q_i} = -\dot{P}_i
+\end{equation}
+Poisson Bracket:
+\begin{equation}
+    [F, H] = \sum_j \dpd{F}{q_j}\dpd{H}{p_j} - \sum_j \dpd{F}{p_j}\dpd{H}{q_j}
+\end{equation}
+Poisson bracket properties:
+\begin{enumerate}
+    \item Anti-symmetry $[F, G] = -[G, H]$, from which we obtain $[F, F] = 0$.
+    \item Bilinearity $[aF + bG, H] = a[F, H] + b[G, H]$ and $[H, aF + bG] = a[H, F] + b[H, G]$
+    \item Leibniz' Rule $[FG, H] = [F, H]G + F[G, H]$
+    \item Jacobi Identity $[F, [G, H]] + [G, [H, F]] + [H, [F, G]] = 0$
+\end{enumerate}
+Canonical relations:
+\begin{equation}
+    [q_i, q_j] = 0,\quad [p_i, p_j] = 0, \quad [q_i, p_j] = \delta_{ij}
+\end{equation}
+Canonical transformation to $\HH \mapsto K$, $q_i \mapsto Q_i$, $p_i \mapsto P_i$ must satisfy:
+\begin{equation}
+    [Q_i, Q_j] = 0,\quad [P_i, P_j] = 0, \quad [Q_i, P_j] = \delta_{ij}
+\end{equation}
+Jacobian determinant:
+\begin{equation}
+    \abs{\dpd{(x, y)}{u, v}} = \det \m{\dpd{x}{u} & \dpd{x}{v} \\ \dpd{y}{u} & \dpd{y}{v}}
+\end{equation}
+A transformation is canonical if:
+\begin{equation}
+    \abs{\dpd{(Q, P)}{(q, p)}} = 1
+\end{equation}
+Liouville's Theorem:
+\begin{equation}
+    \dod{V}{t} = 0 \text{ where $V$ is the phase space volume}
+\end{equation}
+Canonical quantization:
+\begin{equation}
+    [F, G]_P \mapsto \frac{1}{i\hbar}[F, G]
+\end{equation}
+Heisenberg equation of motion:
+\begin{equation}
+    \dod{O}{t} = \frac{1}{i\hbar}[O, H] + \dpd{O}{t}
+\end{equation}
+\subsection{Scattering Theory}
+Number of Scattered Particles
+\begin{equation}
+    N_{sc} = N_{inc}P(\text{hit}) = N_{inc}n_{target}\sigma L
+\end{equation}
+Scattering Area of Hard Spheres:
+\begin{equation}
+    \pi(R_1 + R_2)^2
+\end{equation}
+Mean Free path of air molecules:
+\begin{equation}
+    \lambda = \frac{1}{n\sigma}
+\end{equation}
+Solid Angle:
+\begin{equation}
+    \Delta \Omega = \frac{A}{r^2}
+\end{equation}
+Infinitesimal Solid angle:
+\begin{equation}
+    d\Omega = \sin\theta d\theta d\phi
+\end{equation}
+Differential cross section $\od{\sigma}{\Omega}$ and how it relates to scattered particle number:
+\begin{equation}
+    N_{sc}(\text{into d$\Omega$}) = N_{inc}n_{target}\left(\dod{\sigma}{\Omega}(\theta, \phi)\right)d\Omega
+\end{equation}
+Differential Cross section:
+\begin{equation}
+    \dod{\sigma}{\Omega} = \frac{b}{\sin\theta}\abs{\dod{b}{\theta}}
+\end{equation}
+Expression for $\Delta \phi$ (for solving for diff. cross section):
+\begin{equation}
+    \Delta \phi(r) = \pi - \theta =  2b\int_{r_{min}}^\infty \frac{dr}{r^2\sqrt{1 - \frac{2U(r)}{mv^2_\infty} - \frac{b^2}{r^2}}}
+\end{equation}
+Hard Sphere Differential Cross Section:
+\begin{equation}
+    \dod{\sigma}{\Omega} = \frac{R^2}{4}
+\end{equation}
+Coloumb Potential Differential Cross Section:
+\begin{equation}
+    \dod{\sigma}{\Omega} = \frac{k^2q_1^2q_2^2}{16E^2}\frac{1}{\sin^4\left(\frac{\theta}{2}\right)}
+\end{equation}
+Relating lab differential cross section to COM differential cross section:
+\begin{equation}
+    \left(\dpd{\sigma}{\Omega}\right)_{lab} = \left(\dpd{\sigma}{\Omega}\right)_{COM}\abs{\dod{(\cos\theta_{COM})}{\cos\theta_{lab}}}
+\end{equation}
+Where:
+\begin{equation}
+    \abs{\dod{(\cos\theta_{COM})}{\cos\theta_{lab}}} = \frac{(1 + 2\lambda \cos\theta_{COM} + \lambda^2)^{3/2}}{\abs{1 + \lambda \cos\theta_{COM}}}
+\end{equation}
+
+\subsection{Continuum Mechanics}
+1-D Wave equation:
+\begin{equation}
+    \dpd[2]{u(x, t)}{t} = c^2\dpd[2]{u(x, t)}{x}
+\end{equation}
+3-D generalization:
+\begin{equation}
+    \dpd[2]{p}{t} = c^2\nabla^2p
+\end{equation}
+Volume Forces:
+\begin{equation}
+    \v{F} = k\v{A}dV
+\end{equation}
+Stress and Strain:
+\begin{itemize}
+    \item Stress = Force / Area = Pressure (Fluid)
+    \item Stress = Tension / Area (Wire)
+    \item Stress = Shear Force / Area (Shear)
+    \item Strain = dV/V (Fluid)
+    \item Strain = dl/l (Wire)
+    \item Strain = dy/dx (Shear)
+\end{itemize}
+Young's Modulus:
+\begin{equation}
+    Y = \frac{lk}{A}
+\end{equation}
+Bulk Modulus:
+\begin{equation}
+    dp = -B\frac{dV}{V}
+\end{equation}
+Shear Modulus:
+\begin{equation}
+    \frac{F}{A} = G\frac{dy}{dx}
+\end{equation}
+Stress Tensor:
+\begin{equation}
+    \v{F}(d\v{A}) = \sigma d\v{A}
+\end{equation}
+Displacement Tensor:
+\begin{equation}
+    \mathbb{D} = \m{\dpd{u_1}{r_1} & \dpd{u_1}{r_2} & \dpd{u_1}{r_3} \\ \dpd{u_2}{r_1} & \dpd{u_2}{r_2} & \dpd{u_2}{r_3} \\
+\dpd{u_3}{r_1} & \dpd{u_3}{r_2} & \dpd{u_3}{r_3}}
+\end{equation}
+Strain Tensor:
+\begin{equation}
+    \e = \frac{1}{2}\left(\DD + \DD^T\right)
+\end{equation}
+Hooke's Law for Isotropic Solids:
+\begin{equation}
+    \sigma = 2\mu \e + \lambda \Tr(\e)\II, \quad \mu = G, \lambda = B - \frac{2}{3}\mu
+\end{equation}
+\subsection{Chaos Theory}
+Driven Damped Oscillator:
+\begin{equation}
+    \ddot{\phi} + 2\beta\dot{\phi} + \omega_0\sin\phi = \gamma\omega_0^2\cos(\omega t)
+\end{equation}
+Universal Feigenbaum Number:
+\begin{equation}
+    \delta = \lim_{n \rightarrow \infty}\frac{\gamma_{n-1} - \gamma_{n-2}}{\gamma_n - \gamma_{n-1}} = 4.6692016\ldots
+\end{equation}
+Logistic Map:
+\begin{equation}
+    x_{t+1} = rx_{t}(1-x_t)
+\end{equation}
+\end{document}

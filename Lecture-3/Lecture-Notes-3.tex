@@ -1,0 +1,40 @@
+\documentclass[../PHYS306Notes.tex]{subfiles}
+
+\begin{document}
+\section{Lecture 3}
+\subsection{Lecture Notes - Lagrangian Mechanics Part 3}
+\subsubsection{Review of Variations}
+Recall \textbf{Hamilton's Principle}, where we consider a trajectory between $t_1$, $t_2$, and variations from that trajectory $\eta(t)$. The true trajectory taken by the physical system is given by $\bar{q}(t)$. We parameterize the variations with an $\alpha$ term, where $q(t) = \bar{q}(t) + \alpha\eta(t)$. $\bar{q}(t)$ minimizes the action functional $S[q]$ if $S[\bar{q}] < S[q]$ for any other trajectories $q$. Our functional $S[q]$ is given by:
+\[S[q] = \int_{t_1}^{t_2}
+L(q, \dot{q}, t)dt\]
+We found a method to find $\bar{q}$ by taking the derivative of the action (i.e. a stationary point):
+\[\left. \dod{S[\bar{q} + \alpha \eta]}{\alpha}\right|_{\alpha = 0} = 0\]
+or alternatively, the statement that the (first order) variation must vanish:
+\[\delta S[\bar{q}] = \lim_{\alpha \rightarrow 0} \frac{1}{\alpha}\left(S[\bar{q} + \alpha\eta] - S[\bar{q}]\right) = 0\]
+We will explore this more on Monday when we look at constraint forces. 
+
+\subsubsection{Invariance, The Functional Derivative, and Multiple Variables}
+\begin{enumerate}
+    \item Form invariance of Euler-Lagrange equations. Going from generalized coordinates $q \rightarrow \tilde{q}$, then we have that:
+    \[\LL(\tilde{q}, \dot{\tilde{q}}, t) = \LL(q, \dot{q}, t)\]
+    by the definition of the Lagrangian. Alternatively, see that the action is invariant of the choice of general coordinates:
+    \[\tilde{S}[\tilde{q}] = \int_{t_{1}}^{t_2} \tilde{\LL}\left(\tilde{q}, \dot{\tilde{q}}, t\right) d t=\int_{t_{1}}^{t_2} \mathcal{L}(q, \dot{q}, t) d t=S[q]\]
+    \item One can take a functional derivative and set this to zero. The variation can be written using a functional derivative (indicated by lowercase $\delta$):
+    \[\delta S[q] = \int \frac{\delta S}{\delta q} \eta(t) dt\]
+    What is the definition of the functional derivative? It's very similar to the conventional derivative:
+    \[\frac{\delta S}{\delta q(t)} = \lim_{\alpha = 0} \frac{S[q + \alpha \delta(t)] - S[q]}{\alpha} = \dpd{\LL}{q} - \dod{}{t}\dpd{\LL}{\dot{q}}\]
+    Therefore, $\frac{\delta S}{\delta q} = 0$ implies the Euler Lagrange equations. The way you can think about it is like the partial derivative. We are familiar with the total differential of a function (the sum of the partial differentials, see HW1 as an example). Now, imagine we have a function that depends continuously on a function $q$; its like a partial derivative with an index that is continuous (rather than discrete). 
+    \item If we have multiple variables, the generalization is straightforwards; for $n$ variables, the action functional becomes:
+    \[S = \int_{t_1}^{t_2}\LL(q_1, q_2, \cdots, q_n, \dot{q}_1, \dot{q}_2, \cdots, \dot{q}_n, t)dt\]
+    So we would get $n$ Euler-Lagrange equations:
+    \[\dpd{\LL}{q_i} = \dod{}{t}\dpd{\LL}{\dot{q}_i}\]
+    Where $\dpd{\LL}{q_i}$ is  the generalized force, and $\dpd{\LL}{\dot{q}_i}$ is the generalized momentum. 
+\end{enumerate}
+
+\subsubsection{Torque, Angular Momentum, and Generalized Momentum Conservation}
+See derivation in Worksheet three for the relation:
+\[\dpd{\LL}{\phi} = \dod{}{t}\dpd{\LL}{\dot{\phi}}\]
+Which corresponds to:
+\[\Gamma = \dod{L}{t}\]
+So if there is zero torque, we have conservation of angular momentum. Generally, if $\LL$ is independent of $q_i$, then the generalized momentum $\pd{\LL}{\dot{q}_i}$ is conserved. We have a conservation law that comes from a certain property in the Lagrangian. We call variables that do not appear in the Lagrangian as a "cyclic" or "ignorable" variable.
+\end{document}

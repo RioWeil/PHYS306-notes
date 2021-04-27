@@ -1,0 +1,27 @@
+\documentclass[../PHYS306Notes.tex]{subfiles}
+
+\begin{document}
+\section{Lecture 6}
+\subsection{Lecture Notes - Charged Particles in EM Fields}
+\subsubsection{Newton's Law in the presence of EM fields}
+Newton says:
+\[m\ddot{\v{r}} = q(\v{E} + \dot{\v{r}}\times \v{B})\] for an electric field $\v{E}$ and magnetic field $\v{B}$. This is just the sum of the Coloumb force and Lorentz force.
+
+\subsubsection{Scalar and Vector Potentials}
+We will now apply the ideas of vector potential (for the magnetic field) from PHYS 301 to this situation. Recall that we defined the vector potential $\v{A}$ as \[\v{B} = \curl{\v{A}}\].
+We also recall Faraday's Law, which states (combined with the definition of the potential above) that:
+\[\curl{\v{E}} = -\dpd{\v{B}}{t} = -\dpd{\curl{\v{A}}}{t}\]
+Interchanging the order of taking the curl and taking the time derivative, we see that:
+\[\curl{\left(\v{E} + \dpd{\v{A}}{t}\right)} = \v{0}\]
+So there exists a scalar potential $V$ such that:
+\[-\grad{V} = \v{E} + \dpd{\v{A}}{t}\]
+Which comes from the fact that a curl of a gradient is zero. We can rewrite this to say that:
+\[\v{E} = -\grad{V} - \dpd{\v{A}}{t}\]
+Now, we construct $\LL$ such that we get the Lorentz Force. Generalize $U = qV$ to get:
+\[U' = qV - q\dot{\v{r}}\cdot\v{A}\]
+And we use $\LL' = T - U'$ as our Lagrangian.
+
+Next week Monday, we will look at symmetry properties of the Lagrangian and how we can use this to derive conservation laws. On Wednesday we will look at the method of using Lagrange multipliers for constrained systems. On Friday we will review damped oscillators before moving into a discussion of coupled oscillators.
+
+
+\end{document}
