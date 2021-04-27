@@ -1,0 +1,89 @@
+\documentclass[../PHYS306Notes.tex]{subfiles}
+
+\begin{document}
+\subsection{Worksheet - Generalized Coupled Oscillators}
+\begin{p}
+Show that for any system undergoing small oscillations, the kinetic and potential energies can be written as quadratic forms of the generalized velocities and coordinates, respectively.
+\end{p}
+\begin{s}
+Our vector of $n$ generalized coordinates is given by:
+\[\v{q} = (q_1, \cdots, q_n)\]
+Which may be related to the Cartesian coordinates $\v{r}_i = \v{r}_i(q_1, \cdots, q_n)$. Previously, we solved for the kinetic energy:
+\[T(\v{q}, \dot{\v{q}}) = \frac{1}{2}\sum_{j,k}A_{jk}(q) \dot{q}_j\dot{q}_k\]
+Which is a quadratic form. When we actually evaluate this, we only keep the constant terms from $A_{jk}$ so we get the familiar kinetic energy:
+\[T(\dot{\v{q}}) = \frac{1}{2}\sum_{j,k}M_{jk}\dot{q}_j\dot{q}_k = \frac{1}{2}\dot{\v{q}}^T\MM\dot{\v{q}}\]
+Where things have been written as a matrix product in the last line (replacing the double sum). The potential energy we can do a similar way. In general, the potential energy depends on all of the positions of the particles. We can taylor expand this around an equilibrium value, where $\v{q} = \v{0}$:
+\[U(\v{q}) = U(\v{0}) + \sum_j \dpd{U}{q_j}q_j + \frac{1}{2}\sum_{j,k}\frac{\partial^2 U}{\partial q_j\partial q_k}q_jq_k + \cdots\]
+By the fact that we take $\v{0}$ as a minimum, the second term vanishes. We can also neglect the constant term, so:
+\[U(\v{q}) = \frac{1}{2}\sum_{j, k}K_{jk}q_jq_j = \frac{1}{2}\v{q}^T\KK\v{q}\]
+Hence, we have obtained quadratic forms for both the kinetic and potential energies! This is just a general description that we could do for any system.
+\end{s}
+
+\begin{p}
+Prove that the equations of motion for the eigenfrequencies and eigenvectors are $\det{\KK - \omega^2\MM} = 0$ and $(\KK - \omega^2\MM)\v{a} = 0$.
+\end{p}
+\begin{s}
+Given our system, we have $m$ Lagrange equations in general. These are given by:
+\[\sum_{j=1}^mM_{ij}\ddot{q}_j = \dpd{U}{q_i} = -\sum_{j=1}^m K_{ij}q_j\]
+Which we may rewrite as:
+\[\MM\ddot{\v{q}} = -\KK\v{q}\]
+As done previously, let $\v{q}(t) = \Re\v{z}(t)$, where $\v{z}(t) = \v{a}\exp(i\omega t)$. Plugging this in and cancelling out the time derivatives, we obtain an algebraic set of equations:
+\[(\KK - \omega^2\MM)\v{a} = \v{0}\]
+Which we can get the eigenvalues from:
+\[\det(\KK - \omega^2\MM) = 0\]
+We know that these matrices are positive semidefinite, so the eigenvalues will be positive (or perhaps zero).
+\end{s}
+
+\begin{p}
+Show generally that each normal coordinate $\xi_i$ oscillates at its own normal frequency $\omega_i$, uncoupled to the other normal coordinates. 
+\end{p}
+\begin{s}
+Normal modes are given by:
+\[\v{q}_i(t) = \v{a}_i\cos(\omega_i t - \delta_i)\]
+I.e. each have an oscillatory solution with characterstic frequency $\omega_i$. It also satisfies the eigenvalue problem from above:
+\[\KK\v{a}_i = \omega^2_i\MM\v{a}_i\]
+The normal mode expansion is then given by:
+\[\v{q}(t) = \sum_{i=1}^m \xi_i(t)\v{a}_i\]
+Where $\xi_i(t)$ are the weights of the modes in the general solution representation. We note that $\v{a}_i$ forms a basis in which we can expand the solution, which is nice because in this basis we can solve the equations of motion for the normal coordinates trivially. We have that $\v{q}(t)$ satisfies:
+\[\MM\ddot{\v{q}} = -\KK\v{q}\]
+Let us plug in this normal mode expansion into the equation of motion. This yields:
+\[\sum_{i=1}^m\ddot{\xi}_i(t)\MM\v{a}_i = -\sum_{i=1}^m\xi_i(t)\KK\v{a}_i\]
+But $\KK\v{a}_i = \omega_i^2\MM\v{a}_i$ (eigenvalue) so:
+\[\sum_{i=1}^m\ddot{\xi}_i(t)\MM\v{a}_i = -\sum_{i=1}^m\xi_i(t)(-\omega_i^2)\MM\v{a}_i\]
+This must hold for the components individually, i.e. this must hold for each value of $i$. We therefore obtain the identity:
+\[\ddot{\xi}_i(t) = -\omega_i^2\xi_i(t)\]
+From which we recover the fact that the normal coordinates satisfy equations for simple harmonic motion.
+\end{s}
+
+\begin{p}
+Check for the 2-mass-3-springs problem that the normal coordinates are the coefficients of the eigenvector expansion for the displacements $\binom{x_1}{x_2}$.
+\end{p}
+\begin{s}
+The eigenvectors on Monday were given by:
+\[\v{a}_1 = \m{1 \\ 1}, \quad \v{a}_2 = \m{1 \\ -1}\]
+The normal mode expansion is then:
+\[\v{q} = \xi_1\v{a}_1 + \xi_2\v{a}_2\]
+So therefore:
+\[\v{q} = \m{\xi_1 + \xi_2 \\ \xi_1 - \xi_2} = \m{q_1 \\ q_2}\]
+From which we obtain the normal coordinates:
+\[\xi_1 = \frac{q_1 + q_2}{2}, \quad \xi_2 = \frac{q_1 - q_2}{2}\]
+\end{s}
+
+\begin{p}
+Using the expansion of $(x_1, x_2)$ in terms of eigenvectors,find the normal coordinates for the double pendulum.
+\end{p}
+\begin{s}
+For the double pendulum, we had the general solution:
+\[\phi_1(t) = A_1\exp(i\omega_1 t) + A_2\exp(i\omega_2 t), \quad \phi_2(t) = A_1\sqrt{2}\exp(i\omega_1 t) - A_2\sqrt{2}\exp(i\omega_2 t)\]
+This corresponds to eigenvectors:
+\[\v{a}_1 = \m{1 \\ \sqrt{2}}, \v{a}_2 \m{1 \\ -\sqrt{2}}\]
+The normal mode expansion is given by:
+\[\bm{\phi} = \xi_1\v{a}_1 + \xi_2\v{a}_2 = \m{\xi_1 + \xi_2 \\ \sqrt{2}\xi_1 - \sqrt{2}\xi_2} = \m{\phi_1 \\ \phi_2}\]
+Solving for $\xi_1, \xi_2$ we then solve the system:
+\[\xi_1 + \xi_2 = \phi_1, \quad \xi_1 - \xi_2 = \frac{\phi}{\sqrt{2}}\]
+Adding and subtracting these equations, we get:
+\[\xi_1 = \frac{\left(\phi_1 + \frac{\phi_2}{\sqrt{2}}\right)}{2}\]
+\[\xi_2 = \frac{\left(\phi_1 - \frac{\phi_2}{\sqrt{2}}\right)}{2}\]
+
+\end{s}
+\end{document}

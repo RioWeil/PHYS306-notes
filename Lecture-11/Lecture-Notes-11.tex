@@ -1,0 +1,21 @@
+\documentclass[../PHYS306Notes.tex]{subfiles}
+
+\begin{document}
+\section{Lecture 11}
+\subsection{Lecture Notes - Normal Coordinates}
+\subsubsection{Normal Coordinates of Spring-Mass system}
+From last day, we recall the general solution of the coupled spring mass system:
+\[x_1(t) = A_1\exp(i\omega_1 t) + A_2\exp(i\omega_2 t)\]
+\[x_2(t) = -A_1\exp(i\omega_1 t) + A_2\exp(i \omega_2 t)\]
+We would like a transformation such that for each mode, there is only one non-zero coefficient. The first normal coordinate is given by:
+\[\xi_1(t) = \frac{1}{2}(x_1 - x_2)\]
+and the second by:
+\[\xi_2(t) = \frac{1}{2}(x_1 + x_2)\]
+For mode I ($A_1 = A$ and $A_2 = 0$), we have that $\xi_1(t) = A\cos(\omega t - \delta)$, and $\xi_2(t) = 0$. For mode II ($A_1 = 0$ and $A_2 = A$), we have that $\xi_2(t) = A\cos(\omega t - \delta)$ and $\xi_1(t) = 0$. Why is this useful? Because each normal mode describes an oscillation at a single frequency.
+\subsubsection{Generalization}
+The motion of a system of coupled oscillators can be described with normal coordinates:
+\[\v{q}(t) = \sum_{i=1}^n\v{a}_i\xi_i(t)\]
+where each normal coordinate $\xi_i(t)$ satisfies:
+\[\ddot{\xi}_i + \omega_i^2\xi_i = 0\]
+as each of the $\xi_i$s are an independent harmonic oscillator with a certain frequency. We will return to this point on Friday.
+\end{document}
