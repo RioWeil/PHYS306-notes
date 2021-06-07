@@ -9,3 +9,5 @@ Lecture Notes and Worksheet Solutions for the 2020W2 PHYS 306 (Advanced Classica
 7. Scattering Theory
 8. Continuum Mechanics
 9. Chaos Theory
+
+These notes were taken live, so errors are to be expected. Use at your own risk!
