@@ -19,7 +19,9 @@ The trajectory from time $t_1$ to $t_2$ is parametrized by the generalized coord
 \subsubsection{Generalized Coordinates}
 For $N$ particles, a generalized coordinate $q_i$ depends on the positions of the $N$ particles:
 \[q_i = q_i(\v{r}_1, \cdots, \v{r}_N)\]
-In Cartesian coordinates, we have $3N$ coordinates but these are not necessarily independent. In general, we may have constraint functions $f_\alpha(\v{r}, \dot{\v{r}}, t) = 0$ where $\alpha = 1, \cdots, k$ (i.e. $k$ constraints). We then have $q_i$ independent coordinates, where $i = 1, \cdots n$ where $i = 3N - k$. In other words, for a system of $N$ particles, we have $3N - k$ independent/generalized coordinates. Generalized coordinates allow us to avoid worrying about the constrained parameters. 
+It shares inverse relationship with position vector of each particle: $\v{r}_i=\v{r}_i (q_1, q_2, \dots, q_n)$. In Cartesian coordinates, we have $3N$ coordinates but these are not necessarily independent. In general, we may have constraint functions $f_\alpha(\v{r}, \dot{\v{r}}, t) = 0$ where $\alpha = 1, \cdots, k$ (i.e. $k$ constraints). We then have $q_i$ independent coordinates, where $i = 1, \cdots n$ where $i = 3N - k$. In other words, for a system of $N$ particles, we have $3N - k$ independent/generalized coordinates. Generalized coordinates allow us to avoid worrying about the constrained parameters. \\
+\noindent
+For example, consider motion of a pendulum of length $L$. The position of the blob can be represented by vector $\v{r}=(x,y)$ where $x=L\cos\theta$ and $y=L\sin\theta$. $\theta$ is the only generalized coordinate here. $\theta$ is related to position $\v{r}$ by the following relation: $\theta(\v{r})=\arccos\left( \frac{\hat{\v{x}} \cdot \v{r}}{L} \right)$.
 \subsubsection{Hamilton's Principle and the Lagrangian}
 Let us consider assigning to each generalized coordinate $q(t)$ a number/value:
 \[q(t) \mapsto S[q(t)] \in \RR\]

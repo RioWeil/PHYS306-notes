@@ -15,13 +15,13 @@ Now we consider the divergence of the phase space velocity, $\v{v}$:
 \[\v{v} = \m{\dot{\v{q}} \\ \dot{\v{p}}} = \m{\dpd{\HH}{\v{p}} \\ -\dpd{\HH}{\v{q}}}\]
 The divergence is given by:
 \[\div{\v{v}} = \dpd{\dot{\v{q}}}{\v{q}} + \dpd{\dot{\v{p}}}{\v{p}} = \dpd{}{\v{q}}\left(\dpd{\HH}{\v{p}}\right) - \dpd{}{\v{p}}\left(\dpd{\HH}{\v{q}}\right) = 0\]
-Where we use Hamilton's equations and the equality of mixed partials. How do we interpret this? Consider a surface in phase space that moves out with time. As the surface expands there will be a change in volume covered by this propogating surface.
+Where we use Hamilton's equations and the equality of mixed partials. How do we interpret this? Consider a surface in phase space that moves out with time. As the surface expands there will be a change in volume covered by this propagating surface.
 \begin{center}
     \includegraphics[scale=0.7]{Lecture-26/l26-img1.png}
 \end{center}
 Giving this a surface normal $\v{n}$, calculating the change in volume w.r.t. time we have $\delta V = \v{n}\cdot \v{v}\delta t dA$ and if we integrate over the entire surface, we get teh total change. This yields $\Delta V = \int_S \v{n} \cdot \v{v}\Delta t dA$. And hence:
 \[\dod{V}{t} = \int_S \v{n}\cdot \v{v}dA = 0\]
-Where the RHS we set to zero by the divergece theorem. This concludes the proof, and is another way of proving the theorem.
+Where the RHS we set to zero by the divergence theorem. This concludes the proof, and is another way of proving the theorem.
 
 \subsubsection{Poisson Brackets Revisited \& The path to QM}
 Recall we could write:

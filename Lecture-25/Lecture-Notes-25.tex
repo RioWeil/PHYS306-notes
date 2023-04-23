@@ -24,14 +24,19 @@ This is the \textbf{Poisson Bracket}. It's a shorthand for $\sum_j\pd{F}{q_j}\pd
 We test if the following transformation is canonical:
 \[q_i \mapsto Q_i(p, q), \quad p_i \mapsto P_i(p, q), \quad \dpd{F}{t} = 0, \quad K = \HH\]
 We claim that this is the case if the following identities hold for the fundamental Poisson brackets:
-\[[Q_i, Q_l] = 0, \quad [P_i, P_l] = 0, [Q_i, P_l] = \delta_{il}\]
+\[[Q_i, Q_l] = 0, \quad [P_i, P_l] = 0, \quad [Q_i, P_l] = \delta_{il}\]
 are obeyed. As a remark, these identities are \textit{quite} similar to the canonical commutation relations that we see in quantum mechanics. This shows that the structure in phase space is ready to be quantized. But, we return to this on Friday. For now, we return to the proof. Taking the total time derivative of $F$, we have:
 \[\dod{F}{t} = \ldots = \sum_l \dpd{K}{Q_l}[F, Q_l] + \sum_l \dpd{K}{P_l}[F, P_l]\]
 These identities were just obtained by the chain rule and reordering. We now consider some cases. In the first case, consider $F = Q_i$. In this case,
 \[\dot{Q}_i = \sum_l\dpd{K}{Q_l}[Q_i, Q_l] + \sum_l\dpd{K}{P_l}[Q_i, P_l]\]
 In order for Hamilton's equation to be satisfied, we require that this expression is equal to $\dpd{K}{P_i}$. From this, we require that $[Q_i, Q_l] = 0$, and $[Q_i, P_l] = \delta_{il}$. In the second case, consider $F =P_i$. Then,
 \[\dot{P}_i = \sum_l\dpd{K}{Q_l}[P_i, Q_l] + \sum_l\dpd{K}{P_l}[P_i, P_l]\]
-Again, in order for Hamilton's equations to be satisfied, we require that this is equal to $-\dpd{K}{Q_i}$. From this we obtain that $[P_i, Q_l] = -\delta_{il}$, and $[P_i, P_l] = 0$. This completes the proof of the claim. 
+Again, in order for Hamilton's equations to be satisfied, we require that this is equal to $-\dpd{K}{Q_i}$. From this we obtain that $[P_i, Q_l] = -\delta_{il}$, and $[P_i, P_l] = 0$. This completes the proof of the claim. \\
+We also see that
+\[\dot{q_i}=[q_i, \HH], \quad \dot{p_i}=[p_i, \HH]\]
+Since
+\[\dot{q_i}=[q_i, \HH]=\sum_k \underbrace{\dpd{q_i}{q_k}}_{=\delta_{ik}} \dpd{\HH}{p_k}-\sum_k \underbrace{\dpd{q_i}{p_k}}_{=0} \dpd{\HH}{q_k}=\dpd{\HH}{p_i}\]
+\[\dot{p_i}=[p_i, \HH]=\sum_k \underbrace{\dpd{p_i}{q_k}}_{=0} \dpd{\HH}{p_k}-\sum_k \underbrace{\dpd{p_i}{p_k}}_{=\delta_{ik}} \dpd{\HH}{q_k}=-\dpd{\HH}{q_i}\]
 
 \subsubsection{Hamiltonian Flow}
 Recall our discussion of the phase space vector:

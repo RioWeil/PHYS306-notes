@@ -30,7 +30,7 @@ Which we can write as:
 \end{s}
 
 \begin{p}
-Using the complex quantity $\v{z} = \v{a}\exp(i\omega t)$, show that the equation for the normal modes can be written as $(\KK - \omega\MM)\v{a} = 0$.
+Using the complex quantity $\v{z} = \v{a}\exp(i\omega t)$, show that the equation for the normal modes can be written as $(\KK - \omega^2\MM)\v{a} = 0$.
 \end{p}
 \begin{s}
 We define the complex quantity $\v{z}$ as above (such that $\v{x} = \Re\v{z}$, and then we have:
@@ -63,7 +63,7 @@ To find the normal mode, we solve for the eigenvector corresponding to the above
 \[(\KK - \omega_2\MM)\m{a_1 \\ a_2} = \m{k_{12} & - k_{12} \\ -k_{12} & k_{12}}\m{a_1 \\ a_2} = 0\]
 Or equivalently:
 \[k_{12}\m{1 & -1 \\ -1 & 1}\m{a_1 \\ a_2} = 0\]
-From which we can see that the restriction on $a_1, a_2$ is that:
+From which we can see that the restriction on $a_1, a_2$ (remeber that they are complex) is that:
 \[a_1 = a_2 = A\exp(-i\delta)\]
 Hence solving for $\v{z}$:
 \[\v{z} = \m{a_1 \\ a_2}\exp(i\omega_2 t) = \m{A \\ A}\exp(i(\omega_2 t - \delta))\]
@@ -104,3 +104,12 @@ How does the uncoupled frequency above compare to the two eigenfrequencies?
 \[\omega_2 < \omega_0 < \omega_1\]
 \end{s}
 \noindent$\omega_2$ is the frequency of the lowest mode, the blocks are in phase. The middle frequency is where we fix one block and just let the other oscillate. $\omega_1$ corresponds to the higher eigenmode, with the blocks oscillating out of phase, at the highest frequency. Next day, we will look at coupled pendulums and normal coordinates (which is changing bases to diagonalize our matrices), where we obtain the useful result that the normal coordinates are independent of one another.
+
+\begin{p}
+If the coupling is weak ($k_{12} \ll k$), what is an approximate expression for the frequency $\omega_0=\sqrt{\frac{k+k_{12}}{m}}$?
+\end{p}
+\begin{s}
+We apply Taylor expansion:
+
+\[ \omega_0=\sqrt{\frac{k}{m}\left(1+\frac{k_{12}}{k}\right)}\approx\sqrt{\frac{k}{m}}\left( 1+\frac{k_{12}}{2k} \right) \]
+\end{s}
