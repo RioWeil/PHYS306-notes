@@ -41,7 +41,7 @@ And I know that these new variables will satisfy the same equations. We can use 
 \[F_3 = F_3(p, Q, t)\]
 \[F_4 = F_4(p, P, t)\]
 For now, we will look at the first case, $F_1(q, Q, t)$. In this case, 
-\[\sum_i \dot{q}_i p_i - \HH = \sum_i \dot{Q}_i P_i - K + \dod{F_1}{t} = \sum_{i}\dot{Q}_iP_i - K \sum_i\dpd{F_1}{q_i}\dot{q}_i + \sum_i \dpd{F_1}{Q_i}\dot{Q}_i + \dpd{F_1}{t}\]
+\[\sum_i \dot{q}_i p_i - \HH = \sum_i \dot{Q}_i P_i - K + \dod{F_1}{t} = \sum_{i}\dot{Q}_iP_i +\sum_i\dpd{F_1}{q_i}\dot{q}_i + \sum_i \dpd{F_1}{Q_i}\dot{Q}_i + \dpd{F_1}{t}\]
 We now collect some terms (i.e. the terms that depend commonly on $\dot{q}_i$, $\dot{Q}_i$). Doing so we have:
 \[\sum_i \dot{q}_i\left(p_i - \dpd{F_1}{q_i}\right) - \sum_i\dot{Q}_i\left(P_i + \dpd{F_1}{Q_i}\right) + K - \HH - \dpd{F_1}{t} = 0\]
 From this equation, it is nice to read off what the transformed variables must look like. From the first term, $p_i = \dpd{F_1}{q_i}$, $P_i = -\dpd{F}{Q_i}$, and the new Hamiltonian is $K = \HH + \dpd{F_1}{t}$.

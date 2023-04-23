@@ -21,7 +21,7 @@ For deviations that meet the conditions of the question above, write down the va
 \end{p}
 \begin{s}
 \[\delta f = \dpd{f}{x}\delta x + \dpd{f}{y}\delta y = 0\]
-As the displacement must leavve the constraint unchanged. Hence we may add a $0$ to the total variation of $S$ without changing anything. We therefore write:
+As the displacement must leave the constraint unchanged. Hence we may add a $0$ to the total variation of $S$ without changing anything. We therefore write:
 \[\delta S = \int \left(\dpd{\LL}{x} + \lambda(t)\dpd{f}{x} - \dod{}{t}\dpd{\LL}{\dot{x}}\right)\delta x \delta t + \int\left(\dpd{\LL}{y} + \lambda(t)\dpd{f}{y} - \dod{}{t}\dpd{\LL}{\dot{y}}\right)\delta y dt = 0\]
 \end{s}
 
@@ -30,7 +30,7 @@ Can $\delta x$ and $\delta y$ be independently varied? The multiplying function 
 \end{p}
 \begin{s}
 Unlike the case with generalized coordinates, the variations are not independent. Consider that we can pick $\lambda (t)$ (Lagrange multiplier) to be whatever we like to make the first integral vanish. However, this then means that the second term must vanish as well, as the sum has to be zero (and if the term is to be zero for all variations, then the integrand must be zero)! In general, if we have a function of (not necessarily generalized coordinates) $\LL(x_k, \dot{x}_k, t)$ with $f_{i}(x_k, t) = 0$ ($m$ holonomic constraints), we can consider the modified Lagrangian:
-\[\tilde{L}(x_k, \dot{x}_k, t) = \LL(x_k, \dot{x}_k, t) - \sum_{i=1}^m \lambda_i f_i(x_k, t)\]
+\[\tilde{L}(x_k, \dot{x}_k, t) = \LL(x_k, \dot{x}_k, t) + \sum_{i=1}^m \lambda_i f_i(x_k, t)\]
 And if we require that the variation vanishes $\delta S = 0$, then we get a set of generalized Lagrange equations:
 \[\dpd{\LL}{x_k} + \sum_{i=1}^m \lambda_i \dpd{f_i}{x_k} = \dod{}{t}\dpd{\LL}{\dot{x}_k}\]
 
@@ -44,7 +44,7 @@ What are Lagrange's equations for $x$ and $y$ of the Atwood Machine?
 \end{p}
 \begin{s}
 The Lagrangian is given by:
-\[\LL = \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2}\dot{y}^2 + m_1gx + m_2gy\]
+\[\tilde{\LL} = \LL + \lambda f(x,y) = \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2}\dot{y}^2 + m_1gx + m_2gy + \lambda(x+y-L)\]
 Hence the equations of motions are:
 \[m_1\ddot{x} = m_1g + \lambda\]
 \[m_2\ddot{y} = m_2g + \lambda\]

@@ -57,11 +57,11 @@ Hence the probability of having a first collision in $x$ and $x + dx$ as:
 We can write this in another way as:
 \[P(\text{first coll between in x and x + dx}) = P(\text{no coll in x}) - P(\text{no coll in x + dx})\]
 Turning this small $dx$ into a differential, we have:
-\[P(\text{first coll between in x and x + dx}) = -\dod{}{x}P(\text{no coll in x})\]
+\[P(\text{first coll between in x and x + dx}) = -\dod{}{x}P(\text{no coll in x})dx\]
 We call $P(\text{no coll in x})$ as $P(x)$ for notations. Setting the two expressions equal to each other, we have:
 \[\dod{}{x}P(x) = -\frac{N\sigma}{V}P(x)\]
 This has solution:
-\[P(x) = \exp(-\frac{N\sigma}{V}x)\]
+\[P(x) \propto \exp(-\frac{N\sigma}{V}x)\]
 Then the mean free path can be calculated as the average value of x given this probaility distribution:
 \[\lambda = \avg{x} = \int_{0}^{\infty}xP(x)dx = \int_0^\infty xn\sigma \exp(-\frac{N\sigma}{V}x)\]
 Note that the $n\sigma$ is there as a normalization factor for the distribution. Taking this integral, we have:

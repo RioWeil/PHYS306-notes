@@ -2,20 +2,23 @@
 \begin{p}Write down Newton’sequation of motion for a mass $m$ hanging on a spring with spring constant $k$, equilibrium length $x_0$, and damping coefficient $b$,and subject to a vertical forcing function $F(t)$.
 \end{p}
 \begin{s}
-In one dimension, we have:
+In one dimension, we have ($x$ goes up):
 \[\sum F = -k(x-x_0) - b\dot{x} - mg + F(t) = m\ddot{x}\]
 Where the first term is the spring force, the second term is the air friction, the third term is the gravitational force, and the fourth term is the forcing function. We may rearrange this to say:
-\[m\ddot{x} + b\dot{x} + k(x-x_0) = F(t)\]
+\[m\ddot{x} + b\dot{x} + k(x-x_0) + mg = F(t)\]
 
 \end{s}
 \begin{p}
 In the previous problem, there were nonconservative forces that are not included in our Lagrange formalism. Compare the equation of motion above to the Langrange equation for a mass on a spring without damping and forcing, and suggest how the Lagrange equations should be modified to include friction.
 \end{p}
 \begin{s}
-We consider that Lagrange's equation of motion $\dpd{\LL}{x} = \dod{}{t}\dpd{\LL}{\dot{x}}$ does \textbf{not} account for the nonconservative forces (i.e. the forcing function $F(t)$ and the air friction term $-b\dot{x}$), as the Lagrangian is given by $\LL = T - U = \frac{1}{2}m\dot{x}^2 + mgx + \frac{1}{2}k(x-x_0)^2$ and clearly this does not account for the damping or forcing terms. Without these terms, we have that:
-\[\dpd{\LL}{x} = -k(x - x_0) = \dod{}{t}\dpd{\LL}{\dot{x}} = m\ddot{x}\]
+We consider that Lagrange's equation of motion $\dpd{\LL}{x} = \dod{}{t}\dpd{\LL}{\dot{x}}$ does \textbf{not} account for the nonconservative forces (i.e. the forcing function $F(t)$ and the air friction term $-b\dot{x}$), as the Lagrangian is given by $\LL = T - U = \frac{1}{2}m\dot{x}^2 - mgx - \frac{1}{2}k(x-x_0)^2$ and clearly this does not account for the damping or forcing terms. Without these terms, we have that:
+\[\dpd{\LL}{x} = -k(x - x_0) - mg = \dod{}{t}\dpd{\LL}{\dot{x}} = m\ddot{x}\]
 But with these terms, we have that:
-\[\dpd{\LL}{x} = k(x - x_0) - b\dot{x} + F(t)\]
+\[\dpd{\LL}{x} = -k(x - x_0) - mg - b\dot{x} + F(t)\]
+Rearranging the equation gives:
+\[m\ddot{x} + b\dot{x} + k(x-x_0) + mg = F(t)\]
+We get the same equation as before!
 So the "fix" for nonconservative forces to the Lagrange equations of motion are:
 \[\dpd{\LL}{x} + F_{noncons} = \dod{}{t}\dpd{\LL}{\dot{x}}\]
 You have to add these in manually because there is no principle of least action for dissipative forces.
@@ -29,7 +32,7 @@ Write down the Lagrangian for the Atwood machine. How many degrees of freedom ar
 \end{center}
 \end{p}
 \begin{s}
-There is only one degree of freedom as the motion of one of the masses is completely determined by the other. Let our generalized coordinate be $x$, and we can define the height of the other mass as $y = l - x$ where $l$ is some constant representing the length of the string. The potential energy of the system is given by:
+There is only one degree of freedom as the motion of one of the masses is completely determined by the other. Let our generalized coordinate be $x$ (goes down), and we can define the height of the other mass as $y = l - x$ where $l$ is some constant representing the length of the string. The potential energy of the system is given by:
 \[U = -m_1gx - m_2g(l-x) = xg(m_2-m_1) - m_2lg\]
 The kinetic energy of the system is given by:
 \[T = \frac{1}{2}m_1\dot{x}^2 + \frac{1}{2}m_2(-\dot{x})^2 = \frac{1}{2}(m_1 + m_2)\dot{x}^2\]

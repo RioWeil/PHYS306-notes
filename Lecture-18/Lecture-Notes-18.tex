@@ -39,7 +39,7 @@ As well as that:
 We apply the BAC-CAB rule, that is:
 \[\v{A} \times (\v{B} \times \v{C}) = \v{B}(\v{A} \cdot \v{C}) - \v{C}(\v{A} \cdot \v{B})\]
 Using this, the above expression for the angular momentum becomes:
-\[\v{L} = \m{L_x \\ L_y \\ L_z} = \sum_\alpha m_\alpha \m{(y_\alpha^2 + z_\alpha^2)\omega x & - x_\alpha y_\alpha \omega_y & -x_\alpha z_\alpha \omega_z
+\[\v{L} = \m{L_x \\ L_y \\ L_z} = \sum_\alpha m_\alpha \m{(y_\alpha^2 + z_\alpha^2)\omega_x & - x_\alpha y_\alpha \omega_y & -x_\alpha z_\alpha \omega_z
 \\ -y_\alpha x_\alpha \omega_x & (z_\alpha^2 + x_\alpha^2)\omega_y & -y_\alpha z_\alpha \omega_z
 \\ -z_\alpha x_\alpha \omega_x & -z_\alpha y_\alpha \omega_y & (x_\alpha^2 + y_\alpha^2)\omega_z}\]
 We may pull out these coefficients and define a moment of inertia matrix/tensor:
@@ -64,7 +64,7 @@ Hence we could write the above expression for the inertia tensor more compactly 
     \includegraphics[scale=1]{Lecture-18/l18-img3.png}
 \end{center}
 We have a uniform solid cube of mass $M$ and side $b$, rotating about a corner (the origin). We assume a constant $\rho$ of $\rho = \frac{M}{b^3}$. Calculating $I_{xx}$, we have:
-\[I_xx = \rho\int_0^bdx \int_0^bdy \int_0^bdz (y^2 + z^2) = \ldots = \frac{2}{3}Mb^2\]
+\[I_{xx} = \rho\int_0^bdx \int_0^bdy \int_0^bdz (y^2 + z^2) = \ldots = \frac{2}{3}Mb^2\]
 Note we have pulled out $\rho$ from the integration as these are constant. By symmetry of the object, $I_{xx} = I_{yy} = I_{zz}$. What about the off diagonal terms? Calculating $I_{xy}$ we have:
 \[I_{xy} = \rho\int_0^bdx\int_0^bdy\int_0^bdz(-xy) = -\frac{M}{4}b^4\]
 And we would expect the other off diagonal elements to again be identical by symmetry. Writing the total inertia tensor, we then have:

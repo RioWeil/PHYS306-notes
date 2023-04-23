@@ -1,6 +1,6 @@
 \section{Lecture 6}
 \subsection{Lecture Notes - Charged Particles in EM Fields}
-\subsubsection{Newton's Law in the presence of EM fields}
+\subsubsection{Newton's Law in the Presence of EM Fields}
 Newton says:
 \[m\ddot{\v{r}} = q(\v{E} + \dot{\v{r}}\times \v{B})\] for an electric field $\v{E}$ and magnetic field $\v{B}$. This is just the sum of the Coloumb force and Lorentz force.
 
@@ -18,4 +18,26 @@ Now, we construct $\LL$ such that we get the Lorentz Force. Generalize $U = qV$ 
 \[U' = qV - q\dot{\v{r}}\cdot\v{A}\]
 And we use $\LL' = T - U'$ as our Lagrangian.
 
-Next week Monday, we will look at symmetry properties of the Lagrangian and how we can use this to derive conservation laws. On Wednesday we will look at the method of using Lagrange multipliers for constrained systems. On Friday we will review damped oscillators before moving into a discussion of coupled oscillators.
+\subsubsection{Conservation of Angular Momentum in Spherically Symmetric Lagrangian}
+This central force Lagrangian $\LL=\frac12 \mu |\dot{\v{r}}|^2-U(r)$ is spherically symmetric (ie. doesn't change when the coordinate system rotates). This implies energy is not always conserved but angular momentum is conserved. To see why, we will study rotational symmetry around z-axis.
+When a vector in 3D space $\m{x \\ y \\ z}$ is rotated about z by $\theta$, the new vector is
+\[\m{x' \\ y' \\ z'}=\m{\cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1}\m{x \\ y \\ z}\]
+Consider infinitesimal rotation by $\delta\theta$ and using small angle approximations $\cos\theta\approx1$ and $\sin\theta\approx\theta$,
+\[\m{x' \\ y' \\ z'}=\m{1 & -\delta\theta & 0 \\ \delta\theta & 1 & 0 \\ 0 & 0 & 1}\m{x \\ y \\ z}\]
+The Lagrangian becomes
+\[\LL'(x',y',z',\dot{x'},\dot{y'},\dot{z'})=\LL(x-\delta\theta y,y+\delta\theta x,z,\dot{x}-\delta\theta \dot{y},\dot{y}+\delta\theta \dot{x},\dot{z})\]
+Applying the first order multivariable Taylor expansion about $(x,y,z,\dot{x},\dot{y},\dot{z})$ gives
+\[\LL'(x',y',z',\dot{x'},\dot{y'},\dot{z'})=\LL(x,y,z,\dot{x},\dot{y},\dot{z})+\dpd{\LL}{x'}(x'-x)+\dpd{\LL}{y'}(y'-y)+\dpd{\LL}{z'}(z'-z)+\dpd{\LL}{\dot{x'}}(\dot{x'}-\dot{x})+\dpd{\LL}{\dot{y'}}(\dot{y'}-\dot{y})+\dpd{\LL}{\dot{z'}}(\dot{z'}-\dot{z})\]
+To calculate a x-term, we know that $x'=x-\delta\theta y$. This gives $x'-x=-\delta\theta y$ and $\dpd{\LL}{x'}=\dpd{\LL}{x}\dpd{x}{x'}=\dpd{\LL}{x}$. The other terms can be calculated the similar way. All of these gives
+\[\LL'(x',y',z',\dot{x'},\dot{y'},\dot{z'})=\LL(x,y,z,\dot{x},\dot{y},\dot{z})-\delta\theta \mathbin{\textcolor{blue}{y\dpd{\LL}{x}}}+\delta\theta \mathbin{\textcolor{red}{x\dpd{\LL}{y}}}-\delta\theta \mathbin{\textcolor{blue}{\dot{y}\dpd{\LL}{\dot{x}}}}+\delta\theta\mathbin{\textcolor{red}{\dot{x}\dpd{\LL}{\dot{y}}}}\]
+\[\LL'(x',y',z',\dot{x'},\dot{y'},\dot{z'})=\LL(x,y,z,\dot{x},\dot{y},\dot{z})+\delta\theta \left[ \left( \mathbin{\textcolor{red}{x\dpd{\LL}{y}}} - \mathbin{\textcolor{blue}{y\dpd{\LL}{x}}} \right)+\left( \mathbin{\textcolor{red}{\dot{x}\dpd{\LL}{\dot{y}}}} - \mathbin{\textcolor{blue}{\dot{y}\dpd{\LL}{\dot{x}}}} \right) \right]\]
+Because of rotational symmetry, Lagrangian should not change at all (ie. $\LL'-\LL=0$). And this means
+\[\left( \mathbin{\textcolor{red}{x\dpd{\LL}{y}}} - \mathbin{\textcolor{blue}{y\dpd{\LL}{x}}} \right)+\left( \mathbin{\textcolor{red}{\dot{x}\dpd{\LL}{\dot{y}}}} - \mathbin{\textcolor{blue}{\dot{y}\dpd{\LL}{\dot{x}}}} \right)=0\]
+Substituting EL equations $\dpd{\LL}{x}=\dod{}{t}\left(\dpd{\LL}{\dot{x}}\right)$ and $\dpd{\LL}{y}=\dod{}{t}\left(\dpd{\LL}{\dot{y}}\right)$,
+\[ \mathbin{\textcolor{red}{x\dod{}{t}\left(\dpd{\LL}{\dot{y}}\right)}} + \mathbin{\textcolor{red}{\dod{x}{t}\dpd{\LL}{\dot{y}}}} - \mathbin{\textcolor{blue}{y\dod{}{t}\left(\dpd{\LL}{\dot{x}}\right)}} - \mathbin{\textcolor{blue}{\dod{y}{t}\dpd{\LL}{\dot{x}}}}=0\]
+\[ \dod{}{t}\left( \mathbin{\textcolor{red}{x\dpd{\LL}{\dot{y}}}} - \mathbin{\textcolor{blue}{y\dpd{\LL}{\dot{x}}}} \right)=0\]
+Denote $\dpd{\LL}{\dot{y}}=p_y$ and $\dpd{\LL}{\dot{x}}=p_x$
+\[ \dod{}{t}\left( \mathbin{\textcolor{red}{xp_y}} - \mathbin{\textcolor{blue}{yp_x}} \right)=0\]
+Notice that $xp_y-yp_x$ is z-component of angular momentum $\v{L}$. Therefore
+\[ \dod{L_z}{t}=0\]
+So angular momentum is conserved under rotational symmetry. We will discuss more about this next class.
